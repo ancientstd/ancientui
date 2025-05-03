@@ -1,0 +1,73 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/package.json",
+  "name": "ancient-icons",
+  "version": "1.0.0",
+  "description": "A library of react icons.",
+  "keywords": [
+    "icon",
+    "react",
+    "react-icons",
+    "ancientui",
+    "react-icons",
+    "react-icons-library",
+    "react-icon-library",
+    "react-icon",
+    "react-icons-collection",
+    "react-icons-list",
+    "react-icon-list",
+    "icon-library",
+    "icon-list",
+    "icon-collection"
+  ],
+  "author": "Ancient Studio",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/umd/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf src && rimraf dist",
+    "clean:optimized": "rimraf src && rimraf dist && rimraf optimized",
+    "clean:all": "rimraf .turbo && rimraf node_modules",
+    "count": "node scripts/check-count.js",
+    "lint": "eslint .",
+    "optimize": "node scripts/optimize-svgs.js",
+    "svgr": "svgr --icon --replace-attr-values '#000=none' --replace-attr-values 1em=16 -d src -- ./optimized && node scripts/generate-index.js",
+    "build": "pnpm run clean && pnpm run svgr && node scripts/add-custom-attr.js && node scripts/generate-declarations.js && rollup -c",
+    "analyze": "rollup -c --bundleConfigAsCjs && npx rollup-plugin-visualizer",
+    "types:check": "tsc --noEmit"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ancientstd/ancientui.git"
+  },
+  "homepage": "https://ui.ancientstd.com/icons",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.27.1",
+    "@babel/preset-env": "^7.27.1",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@svgr/cli": "^8.1.0",
+    "rollup": "^4.40.1",
+    "rollup-plugin-filesize": "^10.0.0",
+    "svgo": "^3.3.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

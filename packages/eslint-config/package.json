@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/package.json",
+  "name": "eslint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "license": "MIT"
+}

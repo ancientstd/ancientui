@@ -1,0 +1,12 @@
+.gitignore
+pnpm-lock.yaml
+
+.next/
+.source/
+dist/
+node_modules/
+
+# Icons
+packages/icons/icons/
+packages/icons/optimized/
+packages/icons/src/
